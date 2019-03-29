@@ -10,6 +10,6 @@ class User < ApplicationRecord
 	end
 
 	def last_event
-	self.ticket_order.event.select("events.name").order("ticket_orders.date desc").first
+	self.event.select("events.name").order("ticket_orders.date desc").first
 	end
 end

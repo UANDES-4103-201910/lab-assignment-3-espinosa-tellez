@@ -7,6 +7,6 @@ class Event < ApplicationRecord
 	end
 
 	def highest_revenue
-		self.joins(:ticket_order).select("name").group(:event_id).order("SUM(amount) DESC").first
+		self.ticket.user.select("name").group(:event_id).order("SUM(amount) DESC").first
 	end
 end
