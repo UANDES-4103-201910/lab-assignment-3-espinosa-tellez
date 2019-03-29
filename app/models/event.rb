@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   has_many :ticket
 
 	def most_tickets_sold
-		self.joins(:ticket_order).select("name").group(:event_id).order("COUNT(event_id) DESC").first
+		self.user.select("name").group(:event_id).order("COUNT(event_id) DESC").first
 	end
 
 	def highest_revenue
